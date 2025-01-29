@@ -9,17 +9,22 @@ import java.util.Scanner;
 public class Ejercicio1 {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
     
         try {
+            Scanner scan = new Scanner(System.in);
+
+            String nombre = "";
+
             System.out.println("Ingrese su nombre: ");
-            String nombre = scan.nextLine();
+            nombre = scan.nextLine();
 
             System.out.println("Buenos dias, "+nombre);
+
+            scan.close();
 
         } catch (Exception error) {
             System.out.println(error);
         }
-        scan.close();
+        
     }
 }

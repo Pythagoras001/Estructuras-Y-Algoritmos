@@ -18,10 +18,11 @@ public class Ejercicio9 {
 
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-        scan.useLocale(Locale.US);
-
         try{
+
+            Scanner scan = new Scanner(System.in);
+            scan.useLocale(Locale.US);
+
             float acumulado = 0;
 
             for (int i = 0; i < 5; i++) {
@@ -34,12 +35,10 @@ public class Ejercicio9 {
             }
             
             System.err.println(PURPURA + "Tu promedio es de: " + String.format("%.1f", acumulado) + RESET);
+            scan.close();
 
         } catch(Exception error){
             System.err.println(error);
         }
-
-        scan.close();
-
     }
 }

@@ -7,20 +7,23 @@ public class Ejercicio8 {
 
     public static void main(String[] args) {
         
-        Scanner scan = new Scanner(System.in);
-        scan.useLocale(Locale.US);
-
         try {
+
+            Scanner scan = new Scanner(System.in);
+            scan.useLocale(Locale.US);
+
+            float comida = 0f;
+
             System.out.println("Ingrese el valor de la comida: ");
-            float comida = scan.nextFloat();
+            comida = scan.nextFloat();
 
             System.out.println("Debe pagar: "+ comida*1.18);
+
+            scan.close();
             
         } catch (Exception error) {
             System.out.println(error);
         }
-
-        scan.close();
 
     }   
 }

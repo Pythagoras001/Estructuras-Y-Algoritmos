@@ -16,25 +16,24 @@ public class Ejercicio4 {
 
     public static void main(String[] args) {
 
-        // Creamos el objeto scaner y configuramos en la region US
-        Scanner scan = new Scanner(System.in);
-        scan.useLocale(Locale.US);
-
         try {
-            // Solicitamos el ingreso de la informacion y recibimos la entrada
-            System.out.println(BLUE + "Ingrese la temperatura en C°: ");
-            float temp = scan.nextFloat();
+            Scanner scan = new Scanner(System.in);
+            scan.useLocale(Locale.US);
 
-            // Convertimos la temperatura a Fahrenheit con (0 °C × 9/5) + 32 = 32 °F e imprimimos 
-            float tempFahreng = temp*(9/5) + 32;
+            float temp = 0f;
+            float tempFahreng = 0f;
+
+            System.out.println(BLUE + "Ingrese la temperatura en C°: ");
+            temp = scan.nextFloat();
+
+            tempFahreng = temp*(9/5) + 32;
             System.out.println(YELLOW + "La temperatura en Fahrenheit es: \n" + tempFahreng + " F°" + RESET);
+
+            scan.close();
 
         } catch (Exception error) {
             System.out.println(error);
 
         }
-
-        scan.close();
     }
-    
 }

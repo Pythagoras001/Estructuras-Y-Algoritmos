@@ -10,20 +10,25 @@ import java.util.Scanner;
 public class Ejercicio2 {
     
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        scan.useLocale(Locale.US);
-
+    
         try {
+            Scanner scan = new Scanner(System.in);
+            scan.useLocale(Locale.US);
+
+            double volumenCm = 0;
+            double volumenLit = 0;
+
             System.out.println("Ingrese una cantidad en Cm3: ");
-            double volumenCm = scan.nextDouble();
-            double volumenLit = volumenCm / 1000;
+            volumenCm = scan.nextDouble();
+            volumenLit = volumenCm / 1000;
 
             System.out.println("Su cantida en litros es: " + String.format("%.3f", volumenLit) + " L");
 
+            scan.close();
+            
         } catch (Exception error) {
             System.out.println(error);
         }
         
-        scan.close();
     }
 }

@@ -16,9 +16,11 @@ public class Ejercicio5 {
     public static final String RESET = "\u001B[0m";
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        
+       
         try {
+            Scanner scan = new Scanner(System.in);
+
+
             System.out.println(BLUE + "Ingrese la hora en formato DD/HH/MM/SS: ");
             String[] timelist = scan.nextLine().split("/");
             int c = 0;
@@ -29,11 +31,11 @@ public class Ejercicio5 {
             c += Integer.parseInt(timelist[3]);
 
             System.out.println(PURPURA + "El tiempo en segudos es: " + c + " seg" + RESET);
+
+            scan.close();
            
         } catch (Exception error) { 
             System.out.println(error);
-
-        scan.close();
 
         }
     }

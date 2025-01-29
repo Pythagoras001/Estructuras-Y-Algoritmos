@@ -21,27 +21,28 @@ public class Ejercicio7 {
     public static final String RESET = "\u001B[0m";
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        scan.useLocale(Locale.US);
 
         try {
+
+            Scanner scan = new Scanner(System.in);
+            scan.useLocale(Locale.US);
+
             float fuel = 0;
+            float lengh = 0f;
 
             for (int i = 1; i < 5; i++) {
                 System.out.println(YELLOW + "Ingrese la ruta Numero " + i);
-                float lengh = scan.nextFloat();
+                lengh = scan.nextFloat();
     
                 fuel += ((lengh * 0.2)/60.8) + 1.6;
             }
     
             System.out.println(PURPURA + "El combustible necesario es: " + String.format("%.2f", fuel) + " Toneladas" + RESET);
-    
+            scan.close();
+
         } catch (Exception error) {
             System.out.println(error);
+            
         }
-
-
-        scan.close();
-
     }
 }

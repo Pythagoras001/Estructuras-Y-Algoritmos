@@ -1,4 +1,4 @@
-package JAVA;
+package JAVA.Conceptos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
