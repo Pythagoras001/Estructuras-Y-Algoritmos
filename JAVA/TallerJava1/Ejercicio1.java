@@ -1,4 +1,4 @@
-package JAVA.TallerJava;
+package JAVA.TallerJava1;
 import java.util.Scanner;
 
 /*
