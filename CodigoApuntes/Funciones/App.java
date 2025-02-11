@@ -1,5 +1,5 @@
 
-package funciones;
+package Funciones;
 
 import java.util.Scanner;
 
@@ -46,6 +46,9 @@ public class App {
             resultadoFuncionSuma = sumaValores(valor_1, valor_2);
 
             System.out.println("El resultado de la suma es: " + resultadoFuncionSuma);
+
+            // Cerramos scanner //
+            sc.close();
 
         }
         catch(Exception e){
