@@ -1,24 +1,13 @@
-cant = int(input())
+num = int(input())
 
-valores = []
+lista = [num]
 
-for _ in range(cant):
-    valores.append(int(input()))
-
-dp = [0]*max(valores)
-
-dp[0] = 1
-
-for i in range(1, max(valores)):
-    suma = 0
-    num = str(i+1)
-    if len(num) >= 2:
-        for digit in num:
-            suma += int(digit)
+while num != 1:
+    if num % 2 == 0:
+        num //= 2
     else:
-        suma += i + 1
+        num = (num * 3) + 1 
 
-    dp[i] = dp[i-1] + suma
+    lista.append(num)
 
-for ind in valores:
-    print(dp[ind-1])
+print(*lista)
