@@ -1,9 +1,6 @@
-
-package archivos;
-
 import java.io.*;
 
-public class App {
+public class Archivos {
     
     public static void main(String[] args) {
         
