@@ -18,4 +18,7 @@ def prefix_sums(arr):
     
     return prefix
 
-prefix_sums([1,2,3,4,5,6])
+a =prefix_sums([1,2,3,4,5,6])
+
+print(a)
+print(a[2 + 1] - a[1])

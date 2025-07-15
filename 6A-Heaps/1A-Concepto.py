@@ -21,7 +21,7 @@ arr = [3, 1, 4, 1, 5, 9, 2]
 heapq.heapify(arr)
 
 # Empuja 0 al montón. O(log n)
-heapq.heappush(arr, 0)
+heapq.heappush(arr, 1)
 
 # mira el elemento mínimo = 0. O(1)
 arr[0]
