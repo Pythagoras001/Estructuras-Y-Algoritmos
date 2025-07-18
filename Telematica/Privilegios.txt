@@ -1,0 +1,108 @@
+# 📁 Guía práctica de permisos, dueños y grupos en Bash (Linux)
+
+------------------------------------------------------------
+🔑 1. Tipos de permisos en archivos
+------------------------------------------------------------
+
+Permiso   | Símbolo | Descripción
+----------|---------|------------
+Lectura   | r       | Ver el contenido del archivo
+Escritura | w       | Modificar el contenido
+Ejecución | x       | Ejecutar el archivo (scripts, programas)
+
+------------------------------------------------------------
+👥 2. Tipos de usuarios
+------------------------------------------------------------
+
+Usuario (u)   → El dueño del archivo  
+Grupo (g)     → Usuarios que pertenecen al mismo grupo del archivo  
+Otros (o)     → Todos los demás usuarios del sistema  
+
+------------------------------------------------------------
+🔍 3. Ver permisos de un archivo
+------------------------------------------------------------
+
+Usa el comando:
+    ls -l archivo.txt
+
+Ejemplo de salida:
+    -rw-r--r-- 1 usuario grupo 1234 jul 18 10:00 archivo.txt
+
+Desglose de `-rw-r--r--`:
+    -        → archivo normal (d = directorio)
+    rw-      → permisos para el usuario: lectura y escritura
+    r--      → permisos para el grupo: solo lectura
+    r--      → permisos para otros: solo lectura
+
+------------------------------------------------------------
+🔧 4. Cambiar permisos con chmod
+------------------------------------------------------------
+
+# Sintaxis simbólica:
+    chmod u+x archivo.sh     # Agrega ejecución al usuario
+    chmod g-w archivo.txt    # Quita escritura al grupo
+    chmod o=r archivo.txt    # Solo lectura para otros
+
+# Sintaxis numérica:
+    r = 4, w = 2, x = 1 → se suman
+
+    chmod 755 archivo.sh  → usuario: rwx, grupo: r-x, otros: r-x
+
+------------------------------------------------------------
+👑 5. Cambiar dueño y grupo
+------------------------------------------------------------
+
+# Cambiar el dueño:
+    sudo chown nuevo_usuario archivo.txt
+
+# Cambiar dueño y grupo:
+    sudo chown usuario:grupo archivo.txt
+
+# Solo cambiar el grupo:
+    sudo chgrp nuevo_grupo archivo.txt
+
+------------------------------------------------------------
+🔍 6. Ver usuarios del sistema
+------------------------------------------------------------
+
+    cat /etc/passwd
+
+Este archivo contiene todos los usuarios (incluidos del sistema).  
+Los usuarios comunes tienen UID mayor a 1000.
+
+------------------------------------------------------------
+🧪 CASO 1: Creaste archivo como root pero necesitas usarlo
+------------------------------------------------------------
+
+    sudo touch /home/usuario/archivo.txt
+    sudo chown usuario:usuario /home/usuario/archivo.txt
+
+------------------------------------------------------------
+📁 CASO 2: Compartir archivos entre varios usuarios del mismo grupo
+------------------------------------------------------------
+
+    sudo groupadd equipo
+    sudo usermod -aG equipo ana
+    sudo usermod -aG equipo luis
+    sudo usermod -aG equipo jose
+
+    sudo mkdir /home/compartido
+    sudo chgrp equipo /home/compartido
+    sudo chmod 770 /home/compartido
+    sudo chown ana:equipo /home/compartido/*
+
+------------------------------------------------------------
+💾 CASO 3: Copiaste archivos desde otro sistema o disco externo
+------------------------------------------------------------
+
+    sudo chown -R usuario:usuario /ruta/del/directorio
+
+------------------------------------------------------------
+📦 CASO 4: Servidor necesita acceso a una carpeta
+------------------------------------------------------------
+
+    sudo chown www-data:www-data /var/www/html/misitio
+
+------------------------------------------------------------
+✅ Fin de la guía
+------------------------------------------------------------
