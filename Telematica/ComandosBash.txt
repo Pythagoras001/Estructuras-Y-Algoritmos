@@ -1,0 +1,46 @@
+Comando           | Descripción y Argumentos                                | Ejemplo
+------------------|---------------------------------------------------------|----------------------------------------------------------
+pwd               | Muestra el directorio actual                            | pwd
+cd [dir]          | Cambia al directorio especificado                       | cd /etc
+ls                | Lista archivos                                          | ls
+ls -l             | Lista detallada con permisos y fechas                   | ls -l
+ls -a             | Incluye archivos ocultos (los que comienzan con .)      | ls -a
+ls -lh            | Tamaños legibles (KB, MB)                               | ls -lh
+touch [archivo]   | Crea archivo vacío                                      | touch hola.txt
+mkdir [carpeta]   | Crea una carpeta                                        | mkdir proyecto
+mkdir -p ruta/otra| Crea jerarquía de carpetas                              | mkdir -p app/config
+cp archivo destino| Copia archivo                                           | cp hola.txt copia.txt
+cp -r carpeta/ dst| Copia carpetas recursivamente                           | cp -r doc/ backup/
+mv origen destino | Mueve o renombra archivo                                | mv viejo.txt nuevo.txt
+rm archivo        | Borra archivo                                           | rm basura.txt
+rm -r carpeta     | Borra carpeta y contenido                               | rm -r vieja/
+rm -f archivo     | Fuerza eliminación sin preguntar                        | rm -f error.log
+rm -rf carpeta    | Borra todo (con cuidado)                                | rm -rf /tmp/pruebas
+chmod +x script   | Da permisos de ejecución                                | chmod +x instalar.sh
+chmod 755 archivo | Permisos numéricos (rwxr-xr-x)                          | chmod 755 app.sh
+chown user archivo| Cambia dueño                                            | chown juan hola.txt
+chown user:grupo  | Cambia dueño y grupo                                    | chown juan:admin archivo.txt
+echo "texto"      | Imprime texto                                           | echo "Hola Mundo"
+echo $VAR         | Muestra contenido de variable                           | echo $USER
+> archivo         | Redirecciona y sobrescribe                              | echo "Hola" > saludo.txt
+>> archivo        | Redirecciona y añade al final                           | echo "otra línea" >> saludo.txt
+cat archivo       | Muestra contenido de archivo                            | cat saludo.txt
+head -n 5 archivo | Muestra las primeras 5 líneas                           | head -n 5 datos.csv
+tail -n 10 arch   | Últimas 10 líneas                                       | tail -n 10 log.txt
+| (pipe)          | Pasa salida a otro comando                              | cat archivo | grep "error"
+grep "texto" arch | Busca texto en archivo                                  | grep "hola" saludo.txt
+grep -i           | Búsqueda sin distinguir mayúsculas                      | grep -i "ERROR" log.txt
+grep -r texto dir | Busca en subdirectorios                                 | grep -r "config" /etc
+find . -name *.sh | Buscar por nombre desde el directorio actual            | find . -name "*.sh"
+&&                | Ejecuta si anterior fue exitoso                         | mkdir test && cd test
+||                | Ejecuta si anterior falló                               | cd /nada || echo "falló"
+&                 | Ejecuta en segundo plano                                | sleep 10 &
+jobs              | Muestra trabajos en segundo plano                       | jobs
+fg %1             | Lleva al frente un trabajo suspendido                   | fg %1
+bg %1             | Retoma en fondo un proceso                              | bg %1
+read VAR          | Leer valor del usuario                                  | read nombre
+if                | Condicional                                             | if [ -f archivo ]; then ... ; fi
+for               | Bucle for                                               | for i in 1 2 3; do echo $i; done
+while             | Bucle while                                             | while true; do echo hola; done
+function nombre() | Define función                                          | saluda() { echo Hola; }
+exit 0            | Termina script exitosamente                             | exit 0

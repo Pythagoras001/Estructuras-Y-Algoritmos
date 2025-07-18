@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+# ------------------------------------------
+# Script: ejemplo.py
+# Descripción: Script básico en Python
+# Autor: Tu Nombre
+# Fecha: 2025-07-17
+# Uso: python3 ejemplo.py
+# ------------------------------------------
+
+def main():
+    nombre = input("¿Cómo te llamas? ")
+    print(f"Hola, {nombre}")
+
+if __name__ == "__main__":
+    main()

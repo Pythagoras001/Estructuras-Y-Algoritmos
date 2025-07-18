@@ -1,0 +1,15 @@
+#!/bin/bash
+# ------------------------------------------
+# Script: ejemplo.sh
+# Descripción: Script que saluda al usuario
+# Autor: Tu Nombre
+# Fecha: 2025-07-17
+# Uso: ./ejemplo.sh
+# ------------------------------------------
+
+set -e  # Detiene si hay error
+
+read -p "¿Tu nombre? " nombre
+echo "Hola, $nombre"
+
+exit 0
