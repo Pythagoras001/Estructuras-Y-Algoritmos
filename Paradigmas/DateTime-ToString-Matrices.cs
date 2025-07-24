@@ -23,12 +23,36 @@ class ApuntesProgramacion
         TimeSpan diferencia = ahora - fechaNacimiento;
         Console.WriteLine("Días vividos: " + diferencia.TotalDays);
 
+        // -------------------- TimeSpan --------------------
+        // Crear un TimeSpan manualmente (días, horas, minutos)
+        TimeSpan intervalo = new TimeSpan(2, 3, 30, 0); // 2 días, 3 horas, 30 minutos
+        Console.WriteLine("\nIntervalo personalizado: " + intervalo);
+
+        // Propiedades del TimeSpan
+        Console.WriteLine("Días: " + intervalo.Days);
+        Console.WriteLine("Horas: " + intervalo.Hours);
+        Console.WriteLine("Minutos: " + intervalo.Minutes);
+        Console.WriteLine("Total en horas: " + intervalo.TotalHours);
+
+        // Sumar y restar TimeSpan a DateTime
+        DateTime futura = ahora + intervalo;
+        DateTime pasada = ahora - intervalo;
+        Console.WriteLine("Fecha futura (+intervalo): " + futura);
+        Console.WriteLine("Fecha pasada (-intervalo): " + pasada);
+
+        // Operaciones entre TimeSpan
+        TimeSpan intervalo2 = new TimeSpan(1, 2, 0, 0); // 1 día y 2 horas
+        TimeSpan suma = intervalo + intervalo2;
+        TimeSpan resta = intervalo - intervalo2;
+        Console.WriteLine("Suma de intervalos: " + suma);
+        Console.WriteLine("Resta de intervalos: " + resta);
+
         // -------------------- ToString --------------------
         // ToString() de DateTime con formatos personalizados
-        Console.WriteLine("Formato corto: " + ahora.ToString("d"));         // Solo fecha
-        Console.WriteLine("Formato largo: " + ahora.ToString("D"));        // Fecha larga
-        Console.WriteLine("Hora (24h): " + ahora.ToString("HH:mm"));       // Hora 24h
-        Console.WriteLine("Hora (12h): " + ahora.ToString("hh:mm tt"));    // Hora 12h con AM/PM
+        Console.WriteLine("\nFormato corto: " + ahora.ToString("d"));         // Solo fecha
+        Console.WriteLine("Formato largo: " + ahora.ToString("D"));          // Fecha larga
+        Console.WriteLine("Hora (24h): " + ahora.ToString("HH:mm"));         // Hora 24h
+        Console.WriteLine("Hora (12h): " + ahora.ToString("hh:mm tt"));      // Hora 12h con AM/PM
 
         // ToString() con interpolación y formato numérico
         double numero = 1234.56789;

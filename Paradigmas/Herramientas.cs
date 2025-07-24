@@ -76,6 +76,28 @@ namespace ApunteLINQ
             Console.WriteLine($"¿Todos son mayores?: {todosMayores}");
             Console.WriteLine($"Mayor edad: {maxEdad}");
             Console.WriteLine($"Edad promedio: {promedioEdad}");
+
+            // S E L E C T //
+            // Seleccionar solo los nombres en mayúsculas
+            var nombresMayuscula = personas.Select(p => p.Nombre.ToUpper());
+
+            // Seleccionar objetos anónimos con solo Nombre y Edad al cuadrado
+            var datosAnonimos = personas.Select(p => new { p.Nombre, EdadAlCuadrado = p.Edad * p.Edad });
+
+            // Seleccionar una cadena personalizada por persona
+            var descripciones = personas.Select(p => $"{p.Nombre} tiene {p.Edad} años");
+
+            // Seleccionar la primera letra del nombre
+            var iniciales = personas.Select(p => p.Nombre[0]);
+
+            // Transformar la lista de personas en una lista de booleans (¿mayor de edad?)
+            var esMayorDeEdad = personas.Select(p => p.Edad >= 18);
+
+            // Seleccionar un índice junto con el elemento (usando overload con índice)
+            var conIndice = personas.Select((p, i) => new { Indice = i, Nombre = p.Nombre });
+
         }
     }
 }
+
+
