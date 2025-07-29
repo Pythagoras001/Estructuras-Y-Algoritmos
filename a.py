@@ -1,31 +1,23 @@
+n = int(input())
+presidnete = list(map(int, input().split()))
+miembros = list(map(int, input().split()))
 
+puntos = {i: 0 for i in range(1, n + 1)}
 
+for idx, code in enumerate(presidnete):
+    puntos[code] += n - idx  
 
-estado = dict()
-t = 0
-maxx = float('-inf')
+votoCode = [(i + 1, miembros[i]) for i in range(n)]
+votoCode.sort(key=lambda x: -x[1])  
 
-while(True):
+for idx, (code, _) in enumerate(votoCode):
 
-    s = input().split()
+    puntos[code] += n - idx
 
-    if s[0] == 'fin': break
+# print(puntos, votoCode)
 
-    if s[0] == 'desliza':
-        if not estado.get(s[1], False): 
-            t += 1
-            estado[s[1]] = True
-        else:
-            t -= 1
-            estado[s[1]] = False
+result = list(puntos.items())
+result.sort(key=lambda x: (-x[1], -miembros[x[0] - 1]))
 
-        maxx = max(maxx, t)
-
-    else:
-        print(t)
-
-print(maxx)
-
-
-
-
+for rank, (code, pts) in enumerate(result, start=1):
+    print(f"{rank}. Kod{code:02d} ({pts})")
